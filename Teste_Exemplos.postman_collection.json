@@ -1,0 +1,199 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Trabalho Final",
+		"_postman_id": "a115f401-b442-10cc-8964-999e98dc452a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Exemplo Products",
+			"description": "",
+			"item": [
+				{
+					"name": "Busca todos produtos",
+					"request": {
+						"url": "http://localhost:14353/api/Products",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usuario\" : \"lider@lider.com.br\",\n  \"senha\" : \"lider123\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Busca produto específico",
+					"request": {
+						"url": "http://localhost:14353/api/Products/2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usuario\" : \"lider@lider.com.br\",\n  \"senha\" : \"lider123\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cria produto",
+					"request": {
+						"url": "http://localhost:14353/api/Products",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Novo produto de teste\",\n  \"Category\": \"Teste\",\n  \"Price\": 32.45\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edita produto",
+					"request": {
+						"url": "http://localhost:14353/api/Products/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Name\": \"Produto editado\",\n  \"Category\": \"Teste\",\n  \"Price\": 9.99\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Remove produto",
+					"request": {
+						"url": "http://localhost:14353/api/Products/3",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exemplo Todo",
+			"description": "",
+			"item": [
+				{
+					"name": "Busca todos itens",
+					"request": {
+						"url": "http://localhost:5000/api/todoitems",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Cria item",
+					"request": {
+						"url": "http://localhost:5000/api/todoitems/220ec42a-a395-4e9a-91f3-23811d80e96d",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"220ec42a-a395-4e9a-91f3-23811d80e96d\",\n  \"name\": \"Novo item de teste\",\n  \"notes\": \"Item criado para teste\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edita item",
+					"request": {
+						"url": "http://localhost:5000/api/todoitems/6bb8a868-dba1-4f1a-93b7-24ebce87e243",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"6bb8a868-dba1-4f1a-93b7-24ebce87e243\",\n  \"name\": \"Edição de item para teste\",\n  \"notes\": \"Item editado para teste\",\n  \"done\": false\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Remove item",
+					"request": {
+						"url": "http://localhost:5000/api/todoitems/ecfa6f80-3671-4911-aabe-63cc442c1ecf",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Swagger",
+					"request": {
+						"url": "http://localhost:5000/swagger/v1/swagger.json",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
