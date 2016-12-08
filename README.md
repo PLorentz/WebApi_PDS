@@ -20,7 +20,7 @@
 > <p align="justify">Podendo utilizar de algumas convenções de nomes, o programador consegue facilmente criar métodos que respondem a um verbo (GET, POST, PUT, DELETE, PATCH, etc) em uma rota (template da url), da mesma forma como o protocolo HTTP trabalha com o endereçamento do que fazer com algum recurso. As urls indicam claramente qual recurso o cliente está desejando e os verbos têm semântica definida e amplamente reconhecida de forma que o consumo não só é simples como também é intuitivo. O corpo e o cabeçalho da requisição também podem ser utilizados pelo servidor para entender o que o cliente deseja e como.</p>
 
 > | Método        | Descrição   |
-| ------------- |-------------|
+| --------------- |-------------|
 | GET | Retorna o valor atual de um objeto ou coleção de objetos. | 
 | PUT | Troca o conteúdo do objeto pelo os dados enviados. | 
 | DELETE | Exclui o objeto. | 
@@ -38,22 +38,37 @@
 
 > | Código de Status |	Significado |
 | ------------- | ---------------------------------- |
-| 1xx | Informacionais |
-| 2xx | Sucesso |
+| **1xx** | **Informacionais** |
+| **2xx** | **Sucesso** |
 | 200 | OK – Código geral de sucesso |
 | 201 | Criado – Novo recurso criado e a localização do recurso também é retornada |
 | 202 | Aceito – A requisição foi aceita e o processamento vai acontecer ou ainda não completado |
 | 204 | Sem Conteúdo – A requisição foi atendida e não há necessidade de retornar conteúdo |
-| 3xx | Redirecionamento |
+| **3xx** | **Redirecionamento** |
 | 301 | Movido permanentemente – O recurso requisitado for transferido e todas as requisições futuras devem ser feitas para a url retornada |
 | 304 | Não modificado – Indica que o recurso não foi modificado desde a última vez que foi obtido (GET), comparando com as condicionais informadas no cabeçalho |
-| 4xx | Erro do cliente |
+| **4xx** | **Erro do cliente** |
 | 400 | Requisição Ruim – A requisição não foi atendida pelo servidor por não estar formatada corretamente, portanto não deve ser resubmetida sem alterações |
 | 401 | Não autorizado – Apesar do nome (que talvez fosse melhor como “Não Autenticado”), significa que para atender o que o cliente quer é necessário que ele se autentique ou que a autenticação passada não foi entendida |
 | 403 | Proibido – O servidor entendeu a requisição e quem o cliente é, mas se recusou a atender, podendo ser por causa do perfil do usuário ou mesmo por algum outro motivo que não permite acesso naquele momento |
 | 404 | Não encontrado – O servidor não encontrou algo que case com o endereço informado |
 | 405 | Método não permitido – O método informado não é válido para aquela uri |
-| 5xx | Erro do servidor |
+| **5xx** | **Erro do servidor** |
 | 500 | Erro interno do servidor – Mensagem genérica de erro no servidor, indica que ele encontrou alguma exceção não esperada que impediu de atender a requisição |
 | 503 | Serviço indisponível – O servidor está temporariamente sem conseguir atender à requisição |
+
+> Exemplos de chamadas:
+
+> | Requisição | Semântica | Resposta |
+| ------------- | ------- | ---------------------------------- |
+| POST https://api.contoso.com/produtos<br/>{<br/>    “nome”: “Arroz Xpto”,<br/>    “preco”: 12.3,<br/>    “unidades”: 100<br/>} | Cria o produto <br/> “Arroz Xpto” com <br/> os atributos informados. | Status: 201<br/>Location: “/produtos/10”<br/>{<br/>    “id”: 10,<br/>    “nome”: “Arroz Xpto”,<br/>    “preco”: 12.3,<br/>    “unidades”: 100<br/>} |
+| GET https://api.contoso.com/produtos<br/>|Busca todos os produtos. | Status: 200<br/>[<br/>    {<br/>        “id”: 3,<br/>        “nome”: “Macarrão”,<br/>        “preco”: 9.99,<br/>        “unidades”: 51<br/>    },<br/>    {<br/>        “id”: 7,<br/>        “nome”: “Carne de X”,<br/>        “preco”: 49.9,<br/>        “unidades”: 23<br/>    },<br/>    {<br/>        “id”: 10,<br/>        “nome”: “Arroz Xpto”,<br/>        “preco”: 12.3,<br/>        “unidades”: 100<br/>    }<br/>] |
+| GET https://api.contoso.com/produtos/10 |<br/>Busca o produto 10. | Status: 200<br/>{<br/>    “id”: 10,<br/>    “nome”: “Arroz Xpto”,<br/>    “preco”: 12.3,<br/>    “unidades”: 100<br/>} |
+| GET https://api.contoso.com/produtos/maisVendidos |<br/>Busca os produtos <br/> mais vendidos. | Status: 200<br/>[<br/>    {<br/>        “id”: 3,<br/>        “nome”: “Macarrão”,<br/>        “preco”: 9.99,<br/>        “unidades”: 51<br/>    },<br/>    {<br/>        “id”: 10,<br/>        “nome”: “Arroz Xpto”,<br/>        “preco”: 12.3,<br/>        “unidades”: 100<br/>    }<br/>] |
+| GET https://api.contoso.com/produtos?preco=10.5 |<br/>Busca os produtos <br/> com preço 10,50. | Status: 200<br/>[]<br/> |
+| GET https://api.contoso.com/lojas/10/vendedores/9  |<br/>Busca o vendedor <br/> 9 da loja 10. | Status: 404 |
+| DELETE https://api.contoso.com/produtos/10 | <br/>Exclui o produto 10. | Status: 200<br/>{<br/>    “id”: 10,<br/>    “nome”: “Arroz Xpto”,<br/>    “preco”: 12.3,<br/>    “unidades”: 100<br/>} |
+| PUT https://api.contoso.com/produtos/10<br/>{<br/>    “nome”: “Feijão Xpto”,<br/>    “preco”: 22.5,<br/>    “unidades”: 200<br/>} | Troca o produto <br/> 10 pelo produto <br/> informado no corpo <br/> da requisição. | Status: 204 |
+| PATCH  https://api.contoso.com/produtos/10<br/>{<br/>    “nome”: “Feijão Asd”<br/>} | Atualiza o nome <br/> do produto 10. | Status: 200<br/>{<br/>    “id”: 10,<br/>    “nome”: “Feijão Asd”,<br/>    “preco”: 22.5,<br/>    “unidades”: 200<br/>} |
+
 
