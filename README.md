@@ -71,4 +71,31 @@
 | PUT https://api.contoso.com/produtos/10<br/>{<br/>    “nome”: “Feijão Xpto”,<br/>    “preco”: 22.5,<br/>    “unidades”: 200<br/>} | Troca o produto <br/> 10 pelo produto <br/> informado no corpo <br/> da requisição. | Status: 204 |
 | PATCH  https://api.contoso.com/produtos/10<br/>{<br/>    “nome”: “Feijão Asd”<br/>} | Atualiza o nome <br/> do produto 10. | Status: 200<br/>{<br/>    “id”: 10,<br/>    “nome”: “Feijão Asd”,<br/>    “preco”: 22.5,<br/>    “unidades”: 200<br/>} |
 
+###### 2. Tecnologias relacionadas
+>* JAX-RS: Java API for RESTful Web Services
+>* Django Rest Framework
+>* PHP Slim
+>* Ruby Sinatra
+>* NodeJS ExpressJS
+>* .NET Nancy
 
+
+###### 3. Código que demonstra a tecnologia
+> <p align="justify">O <b>Exemplo 01</b> neste repositório é a execução do tutorial <a href="https://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api">"Getting Started with ASP.NET Web API 2 (C#)"</a> com algumas modificações: a parte front-end não foi implementada e algumas alterações foram feitas para a implementação de POST, PUT e DELETE, permitindo uma experiência completa de CRUD. É um exemplo de ASP.NET Web API 2 com .Net Framework.</p>
+
+> <p align="justify">O <b>Exemplo 02</b> neste repositório é a execução do tutorial <a href="https://docs.microsoft.com/en-us/aspnet/core/mobile/native-mobile-backend">"Creating Backend Services for Native Mobile Applications"</a> com um acréscimo: foi utilizado o <a href="https://github.com/domaindrivendev/Ahoy">Swashbuckle</a> para a geração automática do Swagger 2.0 e da interface swagger-ui. É um exemplo de Web API feita com ASP.NET Core e .Net Core, com demonstração também da Injeção de Dependência nativa da plataforma. Para acessar o front-end do swagger-ui basta acessar /swagger/ui (ex: http://localhost:5000/swagger/ui).</p>
+
+> <p align="justify">Para os dois exemplos foram criados testes no Postman e a coleção exportada está na raiz do repositório.</p>
+
+###### 4. Caso de uso da tecnologia
+> Como o ASP.NET Core é ainda recente, é difícil encontrar muitos casos ainda em produção. Como é uma tecnologia voltada para backend, não é fácil saber se tem alguma aplicação a utilizando. Contudo, posso afirmar que já participei de projetos com Web API e que vários clientes de diferentes portes utilizam, de bancos, construtoras e distribuidoras de energia elétrica a startups.
+
+###### 5. Livros e sites para aprendizado
+>- Seleção de cursos gratuitos ASP.NET: https://www.asp.net/freecourses
+>- Site oficial com visão geral do ASP.NET Web API: https://www.asp.net/aspnet/overview/building-web-apis-with-aspnet
+>- Documentação da Microsoft sobre ASP.NET Core: https://docs.microsoft.com/en-us/aspnet/core/
+>- Referência do ASP.NET Web API 2, por namespace: https://msdn.microsoft.com/en-us/library/mt174857.aspx
+>- Livro "ASP.NET Web API 2: Building a REST Service from Start to Finish": https://www.amazon.com/ASP-NET-Web-API-Building-Service/dp/1484201108/
+>- Livro "The 201 on Building Web API with ASP.NET Core MVC": https://www.amazon.com/201-Building-Web-ASP-NET-Core/dp/1535534060/
+>- Vídeo "Web API Design Jump Start": https://mva.microsoft.com/en-US/training-courses/web-api-design-jump-start-8689
+>- Vídeo "Introduction to ASP.NET Core 1.0": https://mva.microsoft.com/en-US/training-courses/introduction-to-aspnet-core-10-16841
