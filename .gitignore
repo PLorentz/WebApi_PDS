@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Exemplo 01/ProductsApp/.vs
+/Exemplo 01/ProductsApp/packages
+/Exemplo 02/ToDoApi/.vs
+/Exemplo 02/ToDoApi/src/ToDoApi/bin
+/Exemplo 02/ToDoApi/src/ToDoApi/obj
