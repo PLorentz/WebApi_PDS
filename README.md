@@ -71,6 +71,27 @@
 | PUT https://api.contoso.com/produtos/10<br/>{<br/>    “nome”: “Feijão Xpto”,<br/>    “preco”: 22.5,<br/>    “unidades”: 200<br/>} | Troca o produto <br/> 10 pelo produto <br/> informado no corpo <br/> da requisição. | Status: 204 |
 | PATCH  https://api.contoso.com/produtos/10<br/>{<br/>    “nome”: “Feijão Asd”<br/>} | Atualiza o nome <br/> do produto 10. | Status: 200<br/>{<br/>    “id”: 10,<br/>    “nome”: “Feijão Asd”,<br/>    “preco”: 22.5,<br/>    “unidades”: 200<br/>} |
 
+> Código exemplo de ação com filtro de autorização:
+
+``` C#
+[Route("[controller]")]
+public class RedesController : Controller
+{
+    [ApenasAdminGlobal]
+    [HttpPut("{id}/Administradores")]
+    public async Task<IActionResult> EditaAdministradoresAsync(int id, [FromBody] IEnumerable<int> administradores)
+    {
+        var rede = await Gerenciador.BuscaComAdministradoresAsync(id);
+        if (rede == null)
+            return NotFound();
+
+        if (await Gerenciador.RedefineAdministradoresAsync(rede, administradores))
+            return NoContent();
+        return BadRequest();
+    }
+}
+```
+
 ###### 2. Tecnologias relacionadas
 >* JAX-RS: Java API for RESTful Web Services
 >* Django Rest Framework
