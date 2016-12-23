@@ -32,6 +32,8 @@
 
 > <p align="justify">Após o recebimento dos dados do cliente, é executada o passo de Model Validation. A validação dos objetos é feita principalmente por atributos e existem muitos prontos para uso, bastando decorar as propriedades da sua classe, indicando que o campo é obrigatório, valores máximos e mínimos, formatos de telefone, e-mail, cartão de crédito ou url e expressões regulares. É possível criar os seus próprios atributos herdando de ValidationAttribute ou alterar seu modelo para implementar a interface IValidatableObject. O programador pode acessar e retornar os erros da validação e é possível pedir a revalidação do objeto após alterações.</p> 
 
+> <p align="justify">Por meio de atributos (anotações), é possível definir filtros que executam código antes ou depois da action do controller, possibilitando o estilo de programação orientado a aspectos com a definição de soluções para preocupações não funcionais gerais do sistema (cross-cutting concerns). Além de poder criar o seu, todo customizado, já existem classe base de filtros que cuidam de autenticação, autorização e tratamento de exceções. Os filtros podem ser definidos para uma ação (método) específico, para um controller (classe) ou mesmo para a aplicação inteira, permitindo que seja determinado que todos os métodos da API devem ter autenticação exceto algum específico ou que todos as ações de um controller terão log.</p> 
+
 > <p align="justify">A resposta da Web API respeita os códigos de status definidos pelo protocolo HTTP e pode ser acompanhada de algum objeto. O objeto é serializado não sendo necessário definir previamente um serializador ou herdar de classes especificas, permitindo a utilização de POCOs (“Plain Old CLR Objects”, objetos de classes simples). A serialização tenta respeitar o que o cliente informou que aceita no cabeçalho, caso tenha sido informado, se possível. O padrão é a serialização em JSON.</p> 
 
 > | Código de Status |	Significado |
@@ -86,7 +88,7 @@
 > <p align="justify">Para os dois exemplos foram criados testes no Postman e a coleção exportada está na raiz do repositório.</p>
 
 ###### 4. Caso de uso da tecnologia
-> Como o ASP.NET Core é ainda recente, ainda é difícil encontrar casos já em produção. Como é uma tecnologia voltada para backend, não é fácil saber se tem alguma aplicação a utilizando. Contudo, posso afirmar que já participei de projetos com Web API e que vários clientes de diferentes portes utilizam, de bancos, construtoras e distribuidoras de energia elétrica a startups.
+> <p align="justify">Como o ASP.NET Core é ainda recente, ainda é difícil encontrar casos já em produção. Como é uma tecnologia voltada para backend, não é fácil saber se tem alguma aplicação a utilizando. Contudo, posso afirmar que já participei de projetos com Web API e que vários clientes de diferentes portes utilizam, de bancos, construtoras e distribuidoras de energia elétrica a startups.</p>
 
 ###### 5. Livros e sites para aprendizado
 >- Seleção de cursos gratuitos ASP.NET: https://www.asp.net/freecourses
